@@ -1,0 +1,35 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Cloud base -->
+    <path
+        android:fillColor="#CFE2EE"
+        android:strokeColor="#8AB7D4"
+        android:strokeWidth="1.5"
+        android:pathData="M11,22C8.2,22 6,19.8 6,17C6,14.6 7.7,12.5 10.1,12.1C10.7,8.6 13.8,6 17.5,6C21.4,6 24.7,8.8 25.1,12.7C27.3,13.2 29,15.2 29,17.5C29,20 27,22 24.5,22H11Z" />
+    <!-- Rain drops -->
+    <path
+        android:strokeColor="#5B9BC7"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M11,25L10,28M17,25L16,29M23,25L22,28" />
+    <!-- Small worried face in cloud -->
+    <!-- Worried curved eyebrows -->
+    <path
+        android:strokeColor="#4A6F8A"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M13,13L15,14M22,14L20,13" />
+    <!-- Eyes -->
+    <path
+        android:fillColor="#4A6F8A"
+        android:pathData="M14,16A1,1 0 1,0 14,18A1,1 0 1,0 14,16ZM21,16A1,1 0 1,0 21,18A1,1 0 1,0 21,16Z" />
+    <!-- Wobbly anxious mouth -->
+    <path
+        android:strokeColor="#4A6F8A"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M16,19C17,18.5 18,19.5 19,19" />
+</vector>

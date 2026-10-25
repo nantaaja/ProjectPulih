@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/warm_sand"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Custom Pulih Toolbar (ConstraintLayout) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/customToolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Logo Card (ID: cardToolbarLogo) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardToolbarLogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardBackgroundColor="@color/forest_sage"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivToolbarLogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/brand_name"
+                    android:padding="7dp"
+                    android:src="@drawable/logo_pulih" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tag PULIH (ID: txtToolbarTag) -->
+            <TextView
+                android:id="@+id/txtToolbarTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/font_jakarta_sans"
+                android:letterSpacing="0.08"
+                android:text="PULIH"
+                android:textColor="@color/dark_slate_secondary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/txtToolbarTitle"
+                app:layout_constraintStart_toEndOf="@+id/cardToolbarLogo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <!-- Judul Layar Beranda (ID: txtToolbarTitle) -->
+            <TextView
+                android:id="@+id/txtToolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/font_jakarta_sans"
+                android:text="@string/nav_beranda"
+                android:textColor="@color/dark_slate"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardToolbarLogo"
+                app:layout_constraintTop_toBottomOf="@+id/txtToolbarTag" />
+
+            <!-- Tombol Notifikasi (ID: btnNotification) -->
+            <FrameLayout
+                android:id="@+id/btnNotification"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="10dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnProfileAvatar"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Notifikasi"
+                    android:src="@drawable/ic_bell"
+                    app:tint="@color/dark_slate" />
+
+                <!-- Badge Titik Merah Notifikasi -->
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_circle_icon_peach" />
+            </FrameLayout>
+
+            <!-- Avatar Profil Pengguna (ID: btnProfileAvatar) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnProfileAvatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/border_soft"
+                app:strokeWidth="1.5dp">
+
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Profil Nabil"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_avatar" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Main Scrollable Dashboard Content -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/dashboardScroll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:paddingBottom="90dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="8dp">
+
+                <!-- Sapaan Pengguna (ID: txtGreeting) -->
+                <TextView
+                    android:id="@+id/txtGreeting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="@string/greeting_user"
+                    android:textColor="@color/dark_slate"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/badgeDailyFocus"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Badge Fokus Hari Ini (ConstraintLayout) -->
+                <LinearLayout
+                    android:id="@+id/badgeDailyFocus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_badge_sage"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtGreeting"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txtGreeting">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_streak_dot_active" />
+
+                    <!-- Teks Badge Fokus (ID: txtDailyFocus) -->
+                    <TextView
+                        android:id="@+id/txtDailyFocus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="Fokus Hari Ini"
+                        android:textColor="@color/forest_sage_dark"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Subtitle Perjalanan (ID: txtSubtitleJourney) -->
+                <TextView
+                    android:id="@+id/txtSubtitleJourney"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="@string/subtitle_journey"
+                    android:textColor="@color/dark_slate_secondary"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtGreeting" />
+
+                <!-- CARD 1: Bagaimana Perasaanmu? -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardMood"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/pure_white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtSubtitleJourney"
+                    app:strokeColor="@color/border_soft"
+                    app:strokeWidth="1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+                        <!-- Judul Mood (ID: txtMoodTitle) -->
+                        <TextView
+                            android:id="@+id/txtMoodTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:text="@string/how_do_you_feel"
+                            android:textColor="@color/dark_slate"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/btnHeartMood"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!-- Subtitle Mood (ID: txtMoodSubtitle) -->
+                        <TextView
+                            android:id="@+id/txtMoodSubtitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:text="@string/feel_subtitle"
+                            android:textColor="@color/dark_slate_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toStartOf="@+id/btnHeartMood"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtMoodTitle" />
+
+                        <!-- Tombol Simpan Perasaan / Heart (ID: btnHeartMood) -->
+                        <FrameLayout
+                            android:id="@+id/btnHeartMood"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle_icon_sage"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="Simpan Perasaan"
+                                android:src="@drawable/ic_heart"
+                                app:tint="@color/forest_sage" />
+                        </FrameLayout>
+
+                        <!-- Baris Pilihan Mood (5 Tombol) -->
+                        <LinearLayout
+                            android:id="@+id/layoutMoodOptions"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtMoodSubtitle">
+
+                            <!-- Mood 1: Sangat (ID: btnMoodVeryHappy, txtMoodVeryHappy) -->
+                            <LinearLayout
+                                android:id="@+id/btnMoodVeryHappy"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_mood_unselected"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="8dp">
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:contentDescription="Sangat senang"
+                                    android:src="@drawable/ic_emoji_sangat" />
+
+                                <TextView
+                                    android:id="@+id/txtMoodVeryHappy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:fontFamily="@font/font_jakarta_sans"
+                                    android:text="@string/mood_very_happy"
+                                    android:textColor="@color/dark_slate"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Mood 2: Tenang (ID: btnMoodCalm, txtMoodCalm) -->
+                            <LinearLayout
+                                android:id="@+id/btnMoodCalm"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_mood_selected"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="8dp">
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:contentDescription="Tenang"
+                                    android:src="@drawable/ic_emoji_tenang" />
+
+                                <TextView
+                                    android:id="@+id/txtMoodCalm"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:fontFamily="@font/font_jakarta_sans"
+                                    android:text="@string/mood_calm"
+                                    android:textColor="@color/forest_sage_dark"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Mood 3: Biasa (ID: btnMoodNeutral, txtMoodNeutral) -->
+                            <LinearLayout
+                                android:id="@+id/btnMoodNeutral"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_mood_unselected"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="8dp">
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:contentDescription="Biasa saja"
+                                    android:src="@drawable/ic_emoji_biasa" />
+
+                                <TextView
+                                    android:id="@+id/txtMoodNeutral"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:fontFamily="@font/font_jakarta_sans"
+                                    android:text="@string/mood_neutral"
+                                    android:textColor="@color/dark_slate"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Mood 4: Lelah (ID: btnMoodTired, txtMoodTired) -->
+                            <LinearLayout
+                                android:id="@+id/btnMoodTired"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_mood_unselected"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="8dp">
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:contentDescription="Lelah"
+                                    android:src="@drawable/ic_emoji_lelah" />
+
+                                <TextView
+                                    android:id="@+id/txtMoodTired"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:fontFamily="@font/font_jakarta_sans"
+                                    android:text="@string/mood_tired"
+                                    android:textColor="@color/dark_slate"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Mood 5: Cemas (ID: btnMoodAnxious, txtMoodAnxious) -->
+                            <LinearLayout
+                                android:id="@+id/btnMoodAnxious"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_mood_unselected"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="8dp">
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:contentDescription="Cemas"
+                                    android:src="@drawable/ic_emoji_cemas" />
+
+                                <TextView
+                                    android:id="@+id/txtMoodAnxious"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:fontFamily="@font/font_jakarta_sans"
+                                    android:text="@string/mood_anxious"
+                                    android:textColor="@color/dark_slate"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- CARD 2: Target Self-Care Hari Ini (MENGGUNAKAN LISTVIEW DENGAN CUSTOM ADAPTER) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardSelfCare"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/pure_white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardMood"
+                    app:strokeColor="@color/border_soft"
+                    app:strokeWidth="1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+                        <!-- Dot Hijau -->
+                        <View
+                            android:id="@+id/dotSelfCare"
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_streak_dot_active"
+                            app:layout_constraintBottom_toBottomOf="@+id/txtSelfCareTitle"
+                            app:layout_constraintEnd_toStartOf="@+id/txtSelfCareTitle"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/txtSelfCareTitle" />
+
+                        <!-- Judul Self-Care (ID: txtSelfCareTitle) -->
+                        <TextView
+                            android:id="@+id/txtSelfCareTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:text="@string/selfcare_title"
+                            android:textColor="@color/dark_slate"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/txtSelfCareStatus"
+                            app:layout_constraintStart_toEndOf="@+id/dotSelfCare"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!-- Status Badge (ID: txtSelfCareStatus) -->
+                        <TextView
+                            android:id="@+id/txtSelfCareStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge_sage"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="@string/selfcare_status_initial"
+                            android:textColor="@color/forest_sage_dark"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!-- Progress Bar -->
+                        <ProgressBar
+                            android:id="@+id/progressBarSelfCare"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="14dp"
+                            android:max="100"
+                            android:progress="60"
+                            android:progressDrawable="@drawable/progress_bar_custom"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtSelfCareTitle" />
+
+                        <!-- Persentase Tercapai (ID: txtSelfCarePercent) -->
+                        <TextView
+                            android:id="@+id/txtSelfCarePercent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:text="@string/selfcare_percent_initial"
+                            android:textColor="@color/dark_slate"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/txtSelfCareRemaining"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progressBarSelfCare" />
+
+                        <!-- Target Tersisa (ID: txtSelfCareRemaining) -->
+                        <TextView
+                            android:id="@+id/txtSelfCareRemaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:text="@string/selfcare_remaining_initial"
+                            android:textColor="@color/dark_slate_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/progressBarSelfCare" />
+
+                        <!-- LISTVIEW SESUAI INSTRUKSI TUGAS (ID: lvSelfCare) -->
+                        <com.example.projectpulih.NonScrollListView
+                            android:id="@+id/lvSelfCare"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:divider="@null"
+                            android:dividerHeight="0dp"
+                            android:nestedScrollingEnabled="false"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtSelfCarePercent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- BENTO GRID (ConstraintLayout 2 Kolom) -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutBento"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardSelfCare">
+
+                    <!-- Kartu Kiri: Streak Meditasi -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardStreak"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="6dp"
+                        app:cardBackgroundColor="@color/pure_white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/cardBreathing"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeColor="@color/border_soft"
+                        app:strokeWidth="1dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="14dp">
+
+                            <!-- Judul Streak (ID: txtStreakTitle) -->
+                            <TextView
+                                android:id="@+id/txtStreakTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:text="@string/meditation_streak"
+                                android:textColor="@color/dark_slate"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toStartOf="@+id/frameStreakFlame"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <FrameLayout
+                                android:id="@+id/frameStreakFlame"
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_circle_icon_peach"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <ImageView
+                                    android:layout_width="14dp"
+                                    android:layout_height="14dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Streak"
+                                    android:src="@drawable/ic_flame" />
+                            </FrameLayout>
+
+                            <!-- Nilai Hari Streak (ID: txtStreakDays) -->
+                            <TextView
+                                android:id="@+id/txtStreakDays"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:text="@string/streak_days_value"
+                                android:textColor="@color/dark_slate"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtStreakTitle" />
+
+                            <!-- Deskripsi Feedback Streak (ID: txtStreakDesc) -->
+                            <TextView
+                                android:id="@+id/txtStreakDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:text="@string/streak_feedback"
+                                android:textColor="@color/dark_slate_secondary"
+                                android:textSize="11sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtStreakDays" />
+
+                            <!-- Bulatan Indikator Streak (6 Dots) -->
+                            <LinearLayout
+                                android:id="@+id/layoutStreakDots"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtStreakDesc">
+
+                                <View
+                                    android:layout_width="9dp"
+                                    android:layout_height="9dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@drawable/bg_streak_dot_active" />
+
+                                <View
+                                    android:layout_width="9dp"
+                                    android:layout_height="9dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@drawable/bg_streak_dot_active" />
+
+                                <View
+                                    android:layout_width="9dp"
+                                    android:layout_height="9dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@drawable/bg_streak_dot_active" />
+
+                                <View
+                                    android:layout_width="9dp"
+                                    android:layout_height="9dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@drawable/bg_streak_dot_active" />
+
+                                <View
+                                    android:layout_width="9dp"
+                                    android:layout_height="9dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@drawable/bg_streak_dot_active" />
+
+                                <View
+                                    android:layout_width="9dp"
+                                    android:layout_height="9dp"
+                                    android:background="@drawable/bg_streak_dot_inactive" />
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Kartu Kanan: Latihan Napas -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardBreathing"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        app:cardBackgroundColor="@color/terracotta_peach_light"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cardStreak"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeColor="#F2D5CB"
+                        app:strokeWidth="1dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="14dp">
+
+                            <!-- Judul Latihan Napas (ID: txtBreathingTitle) -->
+                            <TextView
+                                android:id="@+id/txtBreathingTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:text="@string/breathing_exercise"
+                                android:textColor="@color/terracotta_peach_dark"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toStartOf="@+id/ivBreathingIcon"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/ivBreathingIcon"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="Latihan Napas"
+                                android:src="@drawable/ic_breath"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/terracotta_peach_dark" />
+
+                            <!-- Teknik Napas (ID: txtBreathingTechnique) -->
+                            <TextView
+                                android:id="@+id/txtBreathingTechnique"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:text="@string/breathing_technique"
+                                android:textColor="@color/dark_slate"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtBreathingTitle" />
+
+                            <!-- Deskripsi Napas (ID: txtBreathingDesc) -->
+                            <TextView
+                                android:id="@+id/txtBreathingDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:text="@string/breathing_desc"
+                                android:textColor="@color/dark_slate_secondary"
+                                android:textSize="11sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtBreathingTechnique" />
+
+                            <!-- Tombol Mulai Napas (ID: btnStartBreathing) -->
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnStartBreathing"
+                                android:layout_width="wrap_content"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/bg_button_terracotta"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:paddingHorizontal="14dp"
+                                android:text="@string/action_start_breathing"
+                                android:textAllCaps="false"
+                                android:textColor="@color/pure_white"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/terracotta_peach_dark"
+                                app:cornerRadius="18dp"
+                                app:elevation="0dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtBreathingDesc" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- CARD 3: CATATAN PAGI (ConstraintLayout) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardMorningNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/pure_white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutBento"
+                    app:strokeColor="@color/border_soft"
+                    app:strokeWidth="1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="14dp">
+
+                        <!-- Thumbnail Card -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardMorningThumb"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:strokeColor="@color/border_soft"
+                            app:strokeWidth="1dp">
+
+                            <ImageView
+                                android:id="@+id/ivMorningNoteThumb"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Catatan Pagi"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_morning_tea" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Kategori Catatan (ID: txtMorningCategory) -->
+                        <TextView
+                            android:id="@+id/txtMorningCategory"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginEnd="8dp"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:letterSpacing="0.05"
+                            android:text="@string/morning_note_category"
+                            android:textColor="@color/forest_sage"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/txtMorningTitle"
+                            app:layout_constraintEnd_toStartOf="@+id/btnMorningNote"
+                            app:layout_constraintStart_toEndOf="@+id/cardMorningThumb"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!-- Judul Catatan (ID: txtMorningTitle) -->
+                        <TextView
+                            android:id="@+id/txtMorningTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="8dp"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:text="@string/morning_note_title"
+                            android:textColor="@color/dark_slate"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/txtMorningDesc"
+                            app:layout_constraintEnd_toStartOf="@+id/btnMorningNote"
+                            app:layout_constraintStart_toEndOf="@+id/cardMorningThumb"
+                            app:layout_constraintTop_toBottomOf="@+id/txtMorningCategory" />
+
+                        <!-- Deskripsi Catatan (ID: txtMorningDesc) -->
+                        <TextView
+                            android:id="@+id/txtMorningDesc"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="8dp"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:text="@string/morning_note_desc"
+                            android:textColor="@color/dark_slate_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btnMorningNote"
+                            app:layout_constraintStart_toEndOf="@+id/cardMorningThumb"
+                            app:layout_constraintTop_toBottomOf="@+id/txtMorningTitle" />
+
+                        <!-- Tombol Aksi Panah (ID: btnMorningNote) -->
+                        <FrameLayout
+                            android:id="@+id/btnMorningNote"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:background="@drawable/bg_input_field"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="Buka catatan"
+                                android:src="@drawable/ic_arrow_forward"
+                                app:tint="@color/dark_slate" />
+                        </FrameLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Bottom Navigation Bar Container (ConstraintLayout) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bottomNavCard"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            app:cardBackgroundColor="@color/pure_white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/border_soft"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <!-- Tab 1: Beranda (ID: btnNavBeranda, txtNavBeranda) -->
+                <LinearLayout
+                    android:id="@+id/btnNavBeranda"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivNavBeranda"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@string/nav_beranda"
+                        android:src="@drawable/ic_nav_beranda"
+                        app:tint="@color/forest_sage" />
+
+                    <TextView
+                        android:id="@+id/txtNavBeranda"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="@string/nav_beranda"
+                        android:textColor="@color/forest_sage"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Tab 2: Jurnal (ID: btnNavJurnal, txtNavJurnal) -->
+                <LinearLayout
+                    android:id="@+id/btnNavJurnal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivNavJurnal"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@string/nav_jurnal"
+                        android:src="@drawable/ic_nav_jurnal"
+                        app:tint="@color/dark_slate_secondary" />
+
+                    <TextView
+                        android:id="@+id/txtNavJurnal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="@string/nav_jurnal"
+                        android:textColor="@color/dark_slate_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Center Tab 3: Tambah (ID: btnNavTambah, txtNavTambah) -->
+                <LinearLayout
+                    android:id="@+id/btnNavTambah"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/bg_circle_icon_sage"
+                        android:backgroundTint="@color/forest_sage">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/nav_tambah"
+                            android:src="@drawable/ic_nav_tambah"
+                            app:tint="@color/pure_white" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/txtNavTambah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="@string/nav_tambah"
+                        android:textColor="@color/forest_sage_dark"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Tab 4: Panduan (ID: btnNavPanduan, txtNavPanduan) -->
+                <LinearLayout
+                    android:id="@+id/btnNavPanduan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivNavPanduan"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@string/nav_panduan"
+                        android:src="@drawable/ic_panduan_meditasi"
+                        app:tint="@color/dark_slate_secondary" />
+
+                    <TextView
+                        android:id="@+id/txtNavPanduan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="@string/nav_panduan"
+                        android:textColor="@color/dark_slate_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,55 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="70dp"
+    android:height="70dp"
+    android:viewportWidth="70"
+    android:viewportHeight="70">
+
+    <!-- Desk Background -->
+    <path
+        android:pathData="M0,0H70V70H0Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:angle="45"
+                android:endColor="#D5C5B2"
+                android:startColor="#EFE8DD"
+                android:type="linear" />
+        </aapt:attr>
+    </path>
+
+    <!-- Warm Coffee Cup & Saucer -->
+    <path
+        android:fillColor="#15000000"
+        android:pathData="M12,40A14,6 0 1,0 40,40A14,6 0 1,0 12,40Z" />
+    <path
+        android:fillColor="#F8F5EE"
+        android:pathData="M14,39A12,5 0 1,0 38,39A12,5 0 1,0 14,39Z" />
+    <path
+        android:fillColor="#ECE5DA"
+        android:pathData="M18,28L20,38C20,40 23,41 26,41C29,41 32,40 32,38L34,28Z" />
+    <path
+        android:fillColor="#6A462F"
+        android:pathData="M19,29A7,3 0 1,0 33,29A7,3 0 1,0 19,29Z" />
+    <!-- Steam -->
+    <path
+        android:strokeColor="#A88B77"
+        android:strokeWidth="1.2"
+        android:pathData="M24,24C23,21 27,20 25,17M28,24C27,22 30,21 29,19" />
+
+    <!-- Open Mindfulness Notebook -->
+    <path
+        android:fillColor="#15000000"
+        android:pathData="M38,20L64,28L58,58L32,50Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,19L63,26L57,55L34,48Z" />
+    <!-- Notebook lines -->
+    <path
+        android:strokeColor="#D3CBC2"
+        android:strokeWidth="1"
+        android:pathData="M42,27L58,32M40,33L56,38M38,39L54,44" />
+    <!-- Bookmark ribbon -->
+    <path
+        android:fillColor="#E07A5F"
+        android:pathData="M48,22L51,23L47,38L45,35L43,37Z" />
+</vector>

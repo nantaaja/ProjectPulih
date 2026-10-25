@@ -1,0 +1,125 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="340dp"
+    android:height="160dp"
+    android:viewportWidth="340"
+    android:viewportHeight="160">
+
+    <!-- Room Wall Background with soft gradient -->
+    <path
+        android:pathData="M0,0H340V160H0Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:angle="45"
+                android:endColor="#EBE5DB"
+                android:startColor="#F7F3EB"
+                android:type="linear" />
+        </aapt:attr>
+    </path>
+
+    <!-- Warm Sunlight Stream from left -->
+    <path
+        android:fillColor="#15FFEBB0"
+        android:pathData="M0,0L180,0L240,160L0,160Z" />
+
+    <!-- Window frame shadow / soft wall line -->
+    <path
+        android:fillColor="#0D000000"
+        android:pathData="M30,0H70V160H30Z" />
+
+    <!-- Wooden Desk Surface -->
+    <path
+        android:pathData="M0,118H340V160H0Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:angle="90"
+                android:endColor="#C8BAA7"
+                android:startColor="#DFD5C6"
+                android:type="linear" />
+        </aapt:attr>
+    </path>
+
+    <!-- Desk Bevel Edge -->
+    <path
+        android:fillColor="#B7A894"
+        android:pathData="M0,118H340V122H0Z" />
+
+    <!-- Terracotta Plant Pot -->
+    <!-- Pot shadow -->
+    <path
+        android:fillColor="#22000000"
+        android:pathData="M152,126A28,6 0 1,0 208,126A28,6 0 1,0 152,126Z" />
+
+    <!-- Pot Body -->
+    <path
+        android:pathData="M160,82L165,124C165,127 172,128 180,128C188,128 195,127 195,124L200,82Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:angle="0"
+                android:endColor="#C7674E"
+                android:startColor="#E48E75"
+                android:type="linear" />
+        </aapt:attr>
+    </path>
+
+    <!-- Pot Rim -->
+    <path
+        android:fillColor="#DC8369"
+        android:pathData="M158,78H202C204,78 205,80 205,82C205,84 204,86 202,86H158C156,86 155,84 155,82C155,80 156,78 158,78Z" />
+
+    <!-- Plant Stem -->
+    <path
+        android:fillColor="#344D42"
+        android:pathData="M178,82H182V38H178Z" />
+
+    <!-- Large Fiddle Leaf Leaves -->
+    <!-- Top Leaf -->
+    <path
+        android:fillColor="#3D5A4D"
+        android:pathData="M180,18C194,18 202,28 195,44C188,48 180,48 180,48C180,48 172,48 165,44C158,28 166,18 180,18Z" />
+    <path
+        android:fillColor="#4D7060"
+        android:pathData="M180,20C188,20 193,27 189,38C184,41 180,41 180,41Z" />
+
+    <!-- Upper Left Leaf -->
+    <path
+        android:fillColor="#456556"
+        android:pathData="M180,42C162,32 145,38 148,54C154,65 174,56 180,50Z" />
+
+    <!-- Upper Right Leaf -->
+    <path
+        android:fillColor="#4A6E5E"
+        android:pathData="M180,46C198,36 215,42 212,58C206,69 186,60 180,54Z" />
+
+    <!-- Lower Left Leaf -->
+    <path
+        android:fillColor="#3A5549"
+        android:pathData="M180,62C165,56 152,65 156,76C163,83 178,73 180,68Z" />
+
+    <!-- Lower Right Leaf -->
+    <path
+        android:fillColor="#547D6B"
+        android:pathData="M180,64C195,58 208,67 204,78C197,85 182,75 180,70Z" />
+
+    <!-- Small Ceramic Cup on the right -->
+    <path
+        android:fillColor="#15000000"
+        android:pathData="M236,125A10,3 0 1,0 256,125A10,3 0 1,0 236,125Z" />
+    <path
+        android:fillColor="#E8DFD5"
+        android:pathData="M238,114L240,124C240,126 244,127 247,127C250,127 254,126 254,124L256,114Z" />
+    <path
+        android:fillColor="#D8CABE"
+        android:pathData="M237,113H257V115H237Z" />
+
+    <!-- Open Book / Journal on the right -->
+    <path
+        android:fillColor="#10000000"
+        android:pathData="M265,123L298,123L305,129L272,129Z" />
+    <path
+        android:fillColor="#FDFBF7"
+        android:pathData="M266,121L296,121L302,127L272,127Z" />
+    <path
+        android:fillColor="#C85A3E"
+        android:pathData="M284,121L285,127Z" />
+</vector>

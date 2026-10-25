@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Face base -->
+    <path
+        android:fillColor="#FFD233"
+        android:pathData="M18,2A16,16 0 1,0 18,34A16,16 0 1,0 18,2Z" />
+    <!-- Cheeks blush -->
+    <path
+        android:fillColor="#FFA875"
+        android:pathData="M8,21A3,2 0 1,0 14,21A3,2 0 1,0 8,21ZM22,21A3,2 0 1,0 28,21A3,2 0 1,0 22,21Z" />
+    <!-- Peaceful curved eyes ^ ^ -->
+    <path
+        android:strokeColor="#7A4F00"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M10,16C11,14 13,14 14,16M22,16C23,14 25,14 26,16" />
+    <!-- Gentle calm smile -->
+    <path
+        android:strokeColor="#7A4F00"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M13,22C14.5,25.5 21.5,25.5 23,22" />
+</vector>

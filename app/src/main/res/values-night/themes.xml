@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme for night mode. Retains Pulih branding palette. -->
+    <style name="Base.Theme.ProjectPulih" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/forest_sage</item>
+        <item name="colorOnPrimary">@color/pure_white</item>
+        <item name="colorPrimaryContainer">@color/forest_sage_light</item>
+        <item name="colorOnPrimaryContainer">@color/forest_sage_dark</item>
+
+        <item name="colorSecondary">@color/terracotta_peach</item>
+        <item name="colorOnSecondary">@color/pure_white</item>
+
+        <item name="android:colorBackground">@color/warm_sand</item>
+        <item name="colorSurface">@color/pure_white</item>
+        <item name="colorOnSurface">@color/dark_slate</item>
+
+        <item name="android:textColorPrimary">@color/dark_slate</item>
+        <item name="android:textColorSecondary">@color/dark_slate_secondary</item>
+
+        <!-- Typography / Font -->
+        <item name="fontFamily">@font/font_jakarta_sans</item>
+        <item name="android:fontFamily">@font/font_jakarta_sans</item>
+
+        <!-- System Bars -->
+        <item name="android:statusBarColor">@color/warm_sand</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/warm_sand</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+    </style>
+</resources>

@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/warm_sand"
+    android:fillViewport="true"
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="28dp">
+
+        <!-- Top Illustration Card with RUANG PULIH Badge -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardLoginBanner"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            app:cardBackgroundColor="@color/pure_white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/border_soft"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivLoginBanner"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/tag_ruang_pulih"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_room_plant"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Badge RUANG PULIH -->
+                <LinearLayout
+                    android:id="@+id/layoutRuangPulihBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="14dp"
+                    android:background="@drawable/bg_pill_badge_white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginEnd="6dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_leaf"
+                        app:tint="@color/forest_sage" />
+
+                    <TextView
+                        android:id="@+id/txtTagRuangPulih"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="@string/tag_ruang_pulih"
+                        android:textColor="@color/dark_slate"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Brand Dot Green -->
+        <View
+            android:id="@+id/dotBrandGreen"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_streak_dot_active"
+            app:layout_constraintBottom_toBottomOf="@+id/txtBrandName"
+            app:layout_constraintEnd_toStartOf="@+id/txtBrandName"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtBrandName" />
+
+        <!-- Nama Brand (ID: txtBrandName) -->
+        <TextView
+            android:id="@+id/txtBrandName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/font_jakarta_sans"
+            android:text="@string/brand_name"
+            android:textColor="@color/dark_slate"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/dotBrandOrange"
+            app:layout_constraintStart_toEndOf="@+id/dotBrandGreen"
+            app:layout_constraintTop_toBottomOf="@+id/cardLoginBanner" />
+
+        <!-- Brand Dot Orange -->
+        <View
+            android:id="@+id/dotBrandOrange"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_circle_icon_peach"
+            app:layout_constraintBottom_toBottomOf="@+id/txtBrandName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtBrandName"
+            app:layout_constraintTop_toTopOf="@+id/txtBrandName" />
+
+        <!-- Tagline (ID: txtTagline) -->
+        <TextView
+            android:id="@+id/txtTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/font_jakarta_sans"
+            android:text="@string/tagline_short"
+            android:textColor="@color/forest_sage_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtBrandName" />
+
+        <!-- Deskripsi Welcome (ID: txtWelcomeDesc) -->
+        <TextView
+            android:id="@+id/txtWelcomeDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/font_jakarta_sans"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:paddingHorizontal="16dp"
+            android:text="@string/welcome_description"
+            android:textColor="@color/dark_slate_secondary"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTagline" />
+
+        <!-- Form Card Container -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFormContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            app:cardBackgroundColor="@color/pure_white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtWelcomeDesc"
+            app:strokeColor="@color/border_soft"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <!-- Label Email (ID: txtLabelEmail) -->
+                <TextView
+                    android:id="@+id/txtLabelEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="@string/label_email"
+                    android:textColor="@color/dark_slate"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Email Input Container -->
+                <LinearLayout
+                    android:id="@+id/containerEmailInput"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLabelEmail">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_email"
+                        app:tint="@color/dark_slate_secondary" />
+
+                    <EditText
+                        android:id="@+id/txtInputEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:autofillHints="emailAddress"
+                        android:background="@null"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:hint="@string/hint_email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textColor="@color/dark_slate"
+                        android:textColorHint="@color/dark_slate_muted"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Label Password (ID: txtLabelPassword) -->
+                <TextView
+                    android:id="@+id/txtLabelPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="@string/label_password"
+                    android:textColor="@color/dark_slate"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerEmailInput" />
+
+                <!-- Password Input Container -->
+                <LinearLayout
+                    android:id="@+id/containerPasswordInput"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLabelPassword">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_lock"
+                        app:tint="@color/dark_slate_secondary" />
+
+                    <EditText
+                        android:id="@+id/txtInputPassword"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:autofillHints="password"
+                        android:background="@null"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:hint="@string/hint_password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/dark_slate"
+                        android:textColorHint="@color/dark_slate_muted"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/btnPasswordToggle"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Tampilkan Sandi"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_eye"
+                        app:tint="@color/dark_slate_secondary" />
+                </LinearLayout>
+
+                <!-- Lupa Kata Sandi (ID: txtForgotPassword) -->
+                <TextView
+                    android:id="@+id/txtForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:padding="4dp"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/dark_slate"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerPasswordInput" />
+
+                <!-- Tombol Masuk (ID: btnMasuk) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMasuk"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_button_masuk"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:gravity="center"
+                    android:text="Masuk   →"
+                    android:textAllCaps="false"
+                    android:textColor="@color/pure_white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/forest_sage"
+                    app:cornerRadius="24dp"
+                    app:elevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtForgotPassword" />
+
+                <!-- Divider Kiri -->
+                <View
+                    android:id="@+id/dividerLeft"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/border_soft"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtOrContinueWith"
+                    app:layout_constraintEnd_toStartOf="@+id/txtOrContinueWith"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txtOrContinueWith" />
+
+                <!-- Teks Atau Lanjut Dengan (ID: txtOrContinueWith) -->
+                <TextView
+                    android:id="@+id/txtOrContinueWith"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="@string/or_continue_with"
+                    android:textColor="@color/dark_slate_secondary"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@+id/dividerRight"
+                    app:layout_constraintStart_toEndOf="@+id/dividerLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/btnMasuk" />
+
+                <!-- Divider Kanan -->
+                <View
+                    android:id="@+id/dividerRight"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/border_soft"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtOrContinueWith"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtOrContinueWith"
+                    app:layout_constraintTop_toTopOf="@+id/txtOrContinueWith" />
+
+                <!-- Masuk dengan Google (ID: btnGoogle) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGoogle"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_button_google"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="@string/sign_in_with_google"
+                    android:textAllCaps="false"
+                    android:textColor="@color/dark_slate"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/input_background"
+                    app:cornerRadius="24dp"
+                    app:elevation="0dp"
+                    app:icon="@drawable/ic_google"
+                    app:iconGravity="textStart"
+                    app:iconPadding="10dp"
+                    app:iconSize="20dp"
+                    app:iconTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtOrContinueWith"
+                    app:strokeColor="@color/border_soft"
+                    app:strokeWidth="1dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Bottom Quick Breathing Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardQuickBreathing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/input_background"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardFormContainer"
+            app:strokeColor="@color/border_soft"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
+
+                <FrameLayout
+                    android:id="@+id/frameBreathingIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_circle_icon_sage"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_panduan_meditasi"
+                        app:tint="@color/forest_sage" />
+                </FrameLayout>
+
+                <!-- Judul Pernapasan (ID: txtQuickBreathingTitle) -->
+                <TextView
+                    android:id="@+id/txtQuickBreathingTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="@string/quick_breathing_title"
+                    android:textColor="@color/dark_slate"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/txtQuickBreathingDesc"
+                    app:layout_constraintEnd_toStartOf="@+id/btnQuickBreathing"
+                    app:layout_constraintStart_toEndOf="@+id/frameBreathingIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Deskripsi Pernapasan (ID: txtQuickBreathingDesc) -->
+                <TextView
+                    android:id="@+id/txtQuickBreathingDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="@string/quick_breathing_desc"
+                    android:textColor="@color/dark_slate_secondary"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnQuickBreathing"
+                    app:layout_constraintStart_toEndOf="@+id/frameBreathingIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/txtQuickBreathingTitle" />
+
+                <!-- Tombol Mulai Pernapasan (ID: btnQuickBreathing) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuickBreathing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_pill_badge_white"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/action_mulai"
+                    android:textAllCaps="false"
+                    android:textColor="@color/dark_slate"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/pure_white"
+                    app:cornerRadius="18dp"
+                    app:elevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/border_soft"
+                    app:strokeWidth="1dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Footer: Belum punya akun? (ID: txtNoAccount) & Daftar sekarang (ID: txtRegister) -->
+        <TextView
+            android:id="@+id/txtNoAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/font_jakarta_sans"
+            android:text="@string/no_account_prompt"
+            android:textColor="@color/dark_slate_secondary"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtRegister"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardQuickBreathing" />
+
+        <TextView
+            android:id="@+id/txtRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_jakarta_sans"
+            android:text="@string/register_now"
+            android:textColor="@color/forest_sage"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/txtNoAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtNoAccount"
+            app:layout_constraintTop_toTopOf="@+id/txtNoAccount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Face base -->
+    <path
+        android:fillColor="#FFD233"
+        android:pathData="M18,2A16,16 0 1,0 18,34A16,16 0 1,0 18,2Z" />
+    <!-- Droopy tired eyes -->
+    <path
+        android:strokeColor="#7A4F00"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M10,14C11,17 14,17 15,14M21,14C22,17 25,17 26,14" />
+    <!-- Downturned mouth -->
+    <path
+        android:strokeColor="#7A4F00"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M14,25C15.5,23 20.5,23 22,25" />
+    <!-- Sweat drop on temple -->
+    <path
+        android:fillColor="#5EA9DD"
+        android:pathData="M27,10C27,12 25.5,13 25.5,14C27,14 28,13 28,11.5Z" />
+</vector>

@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Pulih</string>
+    <string name="brand_name">Pulih</string>
+    <string name="tagline_short">Ruang Tenang Harianmu</string>
+    <string name="tagline_official">Tenang, Rawat, dan Pulih Bersama.</string>
+    <string name="welcome_description">Ruang aman untuk bernapas, merawat pikiran, dan mensyukuri setiap langkah kecil hari ini.</string>
+
+    <!-- Login -->
+    <string name="label_email">Alamat Email</string>
+    <string name="hint_email">nama@email.com</string>
+    <string name="label_password">Kata Sandi</string>
+    <string name="hint_password">••••••••</string>
+    <string name="forgot_password">Lupa kata sandi?</string>
+    <string name="action_masuk">Masuk</string>
+    <string name="or_continue_with">atau lanjut dengan</string>
+    <string name="sign_in_with_google">Masuk dengan Google</string>
+    <string name="quick_breathing_title">Pernapasan Singkat</string>
+    <string name="quick_breathing_desc">1 menit sebelum mulai</string>
+    <string name="action_mulai">Mulai</string>
+    <string name="no_account_prompt">Belum punya akun? </string>
+    <string name="register_now">Daftar sekarang</string>
+    <string name="tag_ruang_pulih">RUANG PULIH</string>
+
+    <!-- Dashboard -->
+    <string name="nav_beranda">Beranda</string>
+    <string name="nav_jurnal">Jurnal</string>
+    <string name="nav_tambah">Tambah</string>
+    <string name="nav_panduan">Panduan</string>
+    <string name="greeting_user">Selamat Pagi, Nabil! 🌿</string>
+    <string name="badge_daily_focus">• Fokus Hari Ini</string>
+    <string name="subtitle_journey">Senin, 24 Oktober • Hari ke-14 Perjalananmu</string>
+
+    <string name="how_do_you_feel">Bagaimana perasaanmu?</string>
+    <string name="feel_subtitle">Pilih yang paling menggambarkan hatimu saat ini</string>
+
+    <string name="mood_very_happy">Sangat..</string>
+    <string name="mood_calm">Tenang</string>
+    <string name="mood_neutral">Biasa..</string>
+    <string name="mood_tired">Lelah</string>
+    <string name="mood_anxious">Cemas</string>
+
+    <string name="selfcare_title">Target Self-Care Hari Ini</string>
+    <string name="selfcare_status_initial">3/5 Selesai</string>
+    <string name="selfcare_percent_initial">60% tercapai</string>
+    <string name="selfcare_remaining_initial">2 target tersisa</string>
+
+    <string name="task_1">Istirahat dari sosmed 30 menit</string>
+    <string name="task_1_time">12:30</string>
+    <string name="task_2">Tulis 1 hal yang disyukuri</string>
+    <string name="task_2_time">08:15</string>
+    <string name="task_3">Tidur tepat waktu (sebelum 23.00)</string>
+    <string name="task_3_time">Malam</string>
+
+    <string name="meditation_streak">Streak Meditasi</string>
+    <string name="streak_days_value">5 Hari 🪔</string>
+    <string name="streak_feedback">Konsistensi yang hebat!</string>
+
+    <string name="breathing_exercise">Latihan Napas</string>
+    <string name="breathing_technique">4-7-8 Tenang</string>
+    <string name="breathing_desc">Rilekskan pikiranmu</string>
+    <string name="action_start_breathing">▶ Mulai (3 mnt)</string>
+
+    <string name="morning_note_category">CATATAN PAGI</string>
+    <string name="morning_note_title">Temukan ketenangan dalam hening</string>
+    <string name="morning_note_desc">Dengarkan audio pemandu 4 menit</string>
+</resources>

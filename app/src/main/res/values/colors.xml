@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core Brand Swatches (UI Style Guide) -->
+    <!-- BG / Surface / Canvas -->
+    <color name="warm_sand">#FAF8F5</color>
+    <!-- Primary / Brand -->
+    <color name="forest_sage">#4A6B5D</color>
+    <color name="forest_sage_dark">#385247</color>
+    <color name="forest_sage_light">#EBF0ED</color>
+    <color name="forest_sage_tint">#F2F5F3</color>
+    <!-- Accent / CTA -->
+    <color name="terracotta_peach">#E07A5F</color>
+    <color name="terracotta_peach_dark">#9E4D38</color>
+    <color name="terracotta_peach_light">#FCECE7</color>
+    <!-- Container / Cards -->
+    <color name="pure_white">#FFFFFF</color>
+    <!-- Typography / Text -->
+    <color name="dark_slate">#2B302C</color>
+    <color name="dark_slate_secondary">#6C746E</color>
+    <color name="dark_slate_muted">#98A09A</color>
+
+    <!-- Supporting & Component Colors -->
+    <color name="border_soft">#E3DFD7</color>
+    <color name="border_light">#ECE8E1</color>
+    <color name="input_background">#F4F6F3</color>
+    <color name="progress_track">#E2E7E4</color>
+    <color name="streak_dot_inactive">#D8DFDA</color>
+    <color name="notification_badge">#E07A5F</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Standard references -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

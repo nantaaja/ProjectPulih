@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/warm_sand"
+    tools:context=".SplashActivity">
+
+    <!-- Logo Card Container (Constrained with packed vertical chain) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSplashLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/pure_white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtSplashTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:strokeColor="@color/border_soft"
+        app:strokeWidth="1dp">
+
+        <ImageView
+            android:id="@+id/ivSplashLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/brand_name"
+            android:padding="20dp"
+            android:src="@drawable/logo_pulih" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Judul Brand (ID: txtSplashTitle) -->
+    <TextView
+        android:id="@+id/txtSplashTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/font_jakarta_sans"
+        android:text="@string/brand_name"
+        android:textColor="@color/dark_slate"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtSplashTagline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardSplashLogo" />
+
+    <!-- Tagline Pendek (ID: txtSplashTagline) -->
+    <TextView
+        android:id="@+id/txtSplashTagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/font_jakarta_sans"
+        android:text="@string/tagline_short"
+        android:textColor="@color/forest_sage"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtSplashPhilosophy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSplashTitle" />
+
+    <!-- Filosofi Brand (ID: txtSplashPhilosophy) -->
+    <TextView
+        android:id="@+id/txtSplashPhilosophy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/font_jakarta_sans"
+        android:gravity="center"
+        android:text="@string/tagline_official"
+        android:textColor="@color/dark_slate_secondary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarSplash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSplashTagline" />
+
+    <!-- Loading Indicator -->
+    <ProgressBar
+        android:id="@+id/progressBarSplash"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        android:indeterminateTint="@color/forest_sage"
+        app:layout_constraintBottom_toTopOf="@+id/txtSplashFooter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSplashPhilosophy" />
+
+    <!-- Icon Leaf Footer -->
+    <ImageView
+        android:id="@+id/ivSplashFooterIcon"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="6dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_leaf"
+        app:layout_constraintBottom_toBottomOf="@+id/txtSplashFooter"
+        app:layout_constraintEnd_toStartOf="@+id/txtSplashFooter"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtSplashFooter"
+        app:tint="@color/forest_sage" />
+
+    <!-- Teks Footer (ID: txtSplashFooter) -->
+    <TextView
+        android:id="@+id/txtSplashFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/font_jakarta_sans"
+        android:text="Tenang, Rawat, dan Pulih Bersama"
+        android:textColor="@color/dark_slate_muted"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivSplashFooterIcon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

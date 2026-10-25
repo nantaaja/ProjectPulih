@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+    <!-- Face base -->
+    <path
+        android:fillColor="#FFD233"
+        android:pathData="M18,2A16,16 0 1,0 18,34A16,16 0 1,0 18,2Z" />
+    <!-- Round neutral eyes -->
+    <path
+        android:fillColor="#7A4F00"
+        android:pathData="M12,15A2,2 0 1,0 12,19A2,2 0 1,0 12,15ZM24,15A2,2 0 1,0 24,19A2,2 0 1,0 24,15Z" />
+    <!-- Straight mouth line -->
+    <path
+        android:strokeColor="#7A4F00"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M13,24H23" />
+</vector>
