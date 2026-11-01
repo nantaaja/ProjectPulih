@@ -31,4 +31,11 @@
     <!-- Standard references -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Modul Pertemuan 9 Colors -->
+    <color name="tutorial_blue">#64B5F6</color>
+    <color name="tutorial_green">#AED581</color>
+    <color name="tutorial_teal">#4DB6AC</color>
+    <color name="abu_gelap">#5F6368</color>
+    <color name="dot_selected">#211C1C</color>
 </resources>

@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projectpulih.databinding.ActivityMainBinding
+import com.google.android.material.chip.Chip
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,6 +42,8 @@ class MainActivity : AppCompatActivity() {
 
         setupMoodSelector()
         setupSelfCareListView()
+        setupChipGroup()
+        setupGridLayoutMenu()
         setupBentoActions()
         setupToolbarActions()
         setupBottomNav()
@@ -87,7 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Implementasi Poin 2: ListView dengan Custom Adapter
+     * Implementasi Poin Praktikum: ListView dengan Custom Adapter
      */
     private fun setupSelfCareListView() {
         selfCareList.clear()
@@ -107,7 +110,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateSelfCareProgress() {
-        // Asumsi dari total 5 target, ada 1 target di luar list ini yang sudah selesai (misal air minum pagi)
         var completed = 1
         selfCareList.forEach { if (it.isCompleted) completed++ }
 
@@ -119,6 +121,44 @@ class MainActivity : AppCompatActivity() {
         binding.progressBarSelfCare.progress = percent
         binding.txtSelfCarePercent.text = "$percent% tercapai"
         binding.txtSelfCareRemaining.text = if (remaining > 0) "$remaining target tersisa" else "Semua target selesai! 🎉"
+    }
+
+    /**
+     * Implementasi Komponen: Chip Group (Pertemuan 9)
+     */
+    private fun setupChipGroup() {
+        binding.chipGroupHome.setOnCheckedStateChangeListener { group, checkedIds ->
+            val selectedChipId = checkedIds.firstOrNull()
+            if (selectedChipId != null) {
+                val chip = group.findViewById<Chip>(selectedChipId)
+                Toast.makeText(this, "Filter Aktif: ${chip.text}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    /**
+     * Implementasi Komponen: GridLayout 6 Menu (Pertemuan 9)
+     */
+    private fun setupGridLayoutMenu() {
+        val gridButtons = listOf(
+            binding.btnQuickMeditasi,
+            binding.btnQuickNapas,
+            binding.btnQuickRefleksi,
+            binding.btnQuickRelaksasi,
+            binding.btnQuickMusik,
+            binding.btnQuickKonseling
+        )
+
+        gridButtons.forEach { btn ->
+            btn.setOnClickListener {
+                when (btn.id) {
+                    R.id.btnQuickNapas -> showBreathing478Dialog()
+                    R.id.btnQuickMeditasi -> Toast.makeText(this, "Membuka sesi Meditasi Hening 5 menit", Toast.LENGTH_SHORT).show()
+                    R.id.btnQuickMusik -> Toast.makeText(this, "Memutar audio relaksasi alam", Toast.LENGTH_SHORT).show()
+                    else -> Toast.makeText(this, "Menu dipilih: ${btn.text}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun setupBentoActions() {
@@ -155,12 +195,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupToolbarActions() {
+        // Tombol Tutorial Screen (ViewPager2 & DotsIndicator)
+        binding.btnInfoTutorial.setOnClickListener {
+            startActivity(Intent(this, TutorialMessageActivity::class.java))
+        }
+
         // Tombol notifikasi
         binding.btnNotification.setOnClickListener {
             showNotificationDialog()
         }
 
-        // Klik Avatar -> opsi Profil & Logout
+        // Klik Avatar -> opsi Profil, Latihan Modul 9, & Logout
         binding.btnProfileAvatar.setOnClickListener {
             showUserOptionsDialog()
         }
@@ -179,14 +224,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showUserOptionsDialog() {
-        val options = arrayOf("Lihat Profil (Nabil)", "Pengaturan Akun", "Keluar (Logout)")
+        val options = arrayOf(
+            "Lihat Profil (Nabil)",
+            "Buka Tutorial Screen (ViewPager2)",
+            "Buka Form & Menu Praktikum (NinthActivity)",
+            "Pengaturan Akun",
+            "Keluar (Logout)"
+        )
         AlertDialog.Builder(this)
-            .setTitle("Akun Pengguna")
+            .setTitle("Akun & Fitur Pulih")
             .setItems(options) { _, which ->
                 when (which) {
                     0 -> Toast.makeText(this, "Membuka Profil Nabil", Toast.LENGTH_SHORT).show()
-                    1 -> Toast.makeText(this, "Membuka Pengaturan", Toast.LENGTH_SHORT).show()
-                    2 -> performLogout()
+                    1 -> startActivity(Intent(this, TutorialMessageActivity::class.java))
+                    2 -> startActivity(Intent(this, NinthActivity::class.java))
+                    3 -> Toast.makeText(this, "Membuka Pengaturan", Toast.LENGTH_SHORT).show()
+                    4 -> performLogout()
                 }
             }
             .show()
@@ -207,7 +260,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Implementasi Poin 1: Bottom Navigation
+     * Implementasi: Bottom Navigation
      */
     private fun setupBottomNav() {
         val navItems = listOf(
@@ -226,7 +279,8 @@ class MainActivity : AppCompatActivity() {
                 text.setTextColor(ContextCompat.getColor(this, R.color.forest_sage))
 
                 if (text.text == getString(R.string.nav_panduan)) {
-                    showSimpleListViewDialog()
+                    // Buka Tutorial Screen (ViewPager2 & DotsIndicator)
+                    startActivity(Intent(this, TutorialMessageActivity::class.java))
                 } else {
                     Toast.makeText(this, "Menu: ${text.text}", Toast.LENGTH_SHORT).show()
                 }
@@ -236,33 +290,5 @@ class MainActivity : AppCompatActivity() {
         binding.btnNavTambah.setOnClickListener {
             Toast.makeText(this, "Tambah entri jurnal atau refleksi baru", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    /**
-     * Demonstrasi ListView dengan simple_list_item (sesuai instruksi: simple list item & custom adapter)
-     */
-    private fun showSimpleListViewDialog() {
-        val panduanList = arrayOf(
-            "1. Panduan Pernapasan Sadar (Mindful Breathing)",
-            "2. Teknik Grounding 5-4-3-2-1 untuk Menenangkan Diri",
-            "3. Meditasi Pemindaian Tubuh (Body Scan)",
-            "4. Menulis Jurnal Refleksi Rasa Syukur (Gratitude Journal)",
-            "5. Rutinitas Menjelang Tidur Nyenyak (Sleep Hygiene)"
-        )
-
-        val dialogView = layoutInflater.inflate(android.R.layout.simple_list_item_1, null)
-        val simpleAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, panduanList)
-
-        val listView = ListView(this)
-        listView.adapter = simpleAdapter
-        listView.setOnItemClickListener { _, _, position, _ ->
-            Toast.makeText(this, "Membuka ${panduanList[position]}", Toast.LENGTH_SHORT).show()
-        }
-
-        AlertDialog.Builder(this)
-            .setTitle("🧘 Panduan Mindfulness (Simple List Item)")
-            .setView(listView)
-            .setPositiveButton("Tutup", null)
-            .show()
     }
 }

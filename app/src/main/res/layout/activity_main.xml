@@ -12,11 +12,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Wave Header Background (bg_header_wave) -->
+        <View
+            android:id="@+id/background_header"
+            android:layout_width="0dp"
+            android:layout_height="115dp"
+            android:background="@drawable/bg_header_wave"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- Custom Pulih Toolbar (ConstraintLayout) -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/customToolbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:paddingHorizontal="20dp"
             android:paddingTop="12dp"
             android:paddingBottom="10dp"
@@ -54,7 +65,7 @@
                 android:fontFamily="@font/font_jakarta_sans"
                 android:letterSpacing="0.08"
                 android:text="PULIH"
-                android:textColor="@color/dark_slate_secondary"
+                android:textColor="@color/pure_white"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/txtToolbarTitle"
@@ -70,12 +81,34 @@
                 android:layout_marginStart="12dp"
                 android:fontFamily="@font/font_jakarta_sans"
                 android:text="@string/nav_beranda"
-                android:textColor="@color/dark_slate"
+                android:textColor="@color/pure_white"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cardToolbarLogo"
                 app:layout_constraintTop_toBottomOf="@+id/txtToolbarTag" />
+
+            <!-- Tombol Tutorial Screen (ID: btnInfoTutorial) -->
+            <FrameLayout
+                android:id="@+id/btnInfoTutorial"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="6dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnNotification"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Tutorial Screen"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/pure_white" />
+            </FrameLayout>
 
             <!-- Tombol Notifikasi (ID: btnNotification) -->
             <FrameLayout
@@ -96,7 +129,7 @@
                     android:layout_gravity="center"
                     android:contentDescription="Notifikasi"
                     android:src="@drawable/ic_bell"
-                    app:tint="@color/dark_slate" />
+                    app:tint="@color/pure_white" />
 
                 <!-- Badge Titik Merah Notifikasi -->
                 <View
@@ -571,6 +604,51 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- ChipGroup Filter -->
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupHome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    app:singleSelection="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardSelfCare">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterAll"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="Semua" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterMeditasi"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="Meditasi" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterNapas"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="Pernapasan" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterJurnal"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_jakarta_sans"
+                        android:text="Jurnal" />
+                </com.google.android.material.chip.ChipGroup>
+
                 <!-- BENTO GRID (ConstraintLayout 2 Kolom) -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layoutBento"
@@ -579,7 +657,7 @@
                     android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardSelfCare">
+                    app:layout_constraintTop_toBottomOf="@+id/chipGroupHome">
 
                     <!-- Kartu Kiri: Streak Meditasi -->
                     <com.google.android.material.card.MaterialCardView
@@ -809,6 +887,197 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- CARD: Menu Cepat Relaksasi -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardGridMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/pure_white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border_soft"
+                    app:strokeWidth="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutBento">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/txtGridMenuTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/font_jakarta_sans"
+                            android:text="Fitur Relaksasi Cepat"
+                            android:textColor="@color/dark_slate"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!-- GridLayout 6 tombol dalam 3 kolom -->
+                        <androidx.gridlayout.widget.GridLayout
+                            android:id="@+id/gridMenuHome"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            app:alignmentMode="alignMargins"
+                            app:columnCount="3"
+                            app:rowCount="2"
+                            app:useDefaultMargins="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtGridMenuTitle">
+
+                            <!-- Baris 1 -->
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnQuickMeditasi"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:minWidth="0dp"
+                                android:minHeight="42dp"
+                                android:paddingHorizontal="4dp"
+                                android:paddingVertical="8dp"
+                                android:text="Meditasi"
+                                android:textColor="@color/forest_sage_dark"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/forest_sage_light"
+                                app:cornerRadius="12dp"
+                                app:layout_column="0"
+                                app:layout_row="0"
+                                app:layout_columnWeight="1"
+                                app:layout_gravity="fill_horizontal" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnQuickNapas"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:minWidth="0dp"
+                                android:minHeight="42dp"
+                                android:paddingHorizontal="4dp"
+                                android:paddingVertical="8dp"
+                                android:text="Napas 4-7-8"
+                                android:textColor="@color/terracotta_peach_dark"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/terracotta_peach_light"
+                                app:cornerRadius="12dp"
+                                app:layout_column="1"
+                                app:layout_row="0"
+                                app:layout_columnWeight="1"
+                                app:layout_gravity="fill_horizontal" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnQuickRefleksi"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:minWidth="0dp"
+                                android:minHeight="42dp"
+                                android:paddingHorizontal="4dp"
+                                android:paddingVertical="8dp"
+                                android:text="Refleksi"
+                                android:textColor="@color/forest_sage_dark"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/forest_sage_light"
+                                app:cornerRadius="12dp"
+                                app:layout_column="2"
+                                app:layout_row="0"
+                                app:layout_columnWeight="1"
+                                app:layout_gravity="fill_horizontal" />
+
+                            <!-- Baris 2 -->
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnQuickRelaksasi"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:minWidth="0dp"
+                                android:minHeight="42dp"
+                                android:paddingHorizontal="4dp"
+                                android:paddingVertical="8dp"
+                                android:text="Relaksasi"
+                                android:textColor="@color/terracotta_peach_dark"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/terracotta_peach_light"
+                                app:cornerRadius="12dp"
+                                app:layout_column="0"
+                                app:layout_row="1"
+                                app:layout_columnWeight="1"
+                                app:layout_gravity="fill_horizontal" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnQuickMusik"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:minWidth="0dp"
+                                android:minHeight="42dp"
+                                android:paddingHorizontal="4dp"
+                                android:paddingVertical="8dp"
+                                android:text="Audio Tenang"
+                                android:textColor="@color/forest_sage_dark"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/forest_sage_light"
+                                app:cornerRadius="12dp"
+                                app:layout_column="1"
+                                app:layout_row="1"
+                                app:layout_columnWeight="1"
+                                app:layout_gravity="fill_horizontal" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnQuickKonseling"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_jakarta_sans"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:minWidth="0dp"
+                                android:minHeight="42dp"
+                                android:paddingHorizontal="4dp"
+                                android:paddingVertical="8dp"
+                                android:text="Konseling"
+                                android:textColor="@color/terracotta_peach_dark"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/terracotta_peach_light"
+                                app:cornerRadius="12dp"
+                                app:layout_column="2"
+                                app:layout_row="1"
+                                app:layout_columnWeight="1"
+                                app:layout_gravity="fill_horizontal" />
+                        </androidx.gridlayout.widget.GridLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
                 <!-- CARD 3: CATATAN PAGI (ConstraintLayout) -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardMorningNote"
@@ -824,7 +1093,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/layoutBento"
+                    app:layout_constraintTop_toBottomOf="@+id/cardGridMenu"
                     app:strokeColor="@color/border_soft"
                     app:strokeWidth="1dp">
 
