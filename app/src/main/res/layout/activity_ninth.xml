@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/warm_sand"
+    tools:context=".NinthActivity">
+
+    <!-- Header Wave Artistik (bg_header_wave) -->
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:background="@drawable/bg_header_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Toolbar dengan latar transparan di atas header wave -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/pure_white" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="40dp">
+
+            <!-- Tahap 1: TextInputLayout & MaterialButton -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="20dp"
+                android:hint="Nama Pengguna"
+                app:boxStrokeColor="@color/forest_sage"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:endIconMode="clear_text"
+                app:helperText="Gunakan nama panggilanmu"
+                app:hintTextColor="@color/forest_sage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/ic_edit"
+                app:startIconTint="@color/forest_sage">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/dark_slate" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogin"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/forest_sage"
+                android:fontFamily="@font/font_jakarta_sans"
+                android:text="Simpan Profil"
+                android:textAllCaps="false"
+                android:textColor="@color/pure_white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:cornerRadius="25dp"
+                app:icon="@drawable/ic_login"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+            <!-- Tahap 2: Chip & ChipGroup -->
+            <TextView
+                android:id="@+id/txtLabelFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_jakarta_sans"
+                android:text="Pilihan Kategori Relaksasi:"
+                android:textColor="@color/dark_slate"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLabelFilter"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTerbaru"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Semua" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPenting"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Meditasi" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBelumDibaca"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Pernapasan" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipJurnal"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Jurnal" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- Tahap 3: Kolom Input dengan bg_rounded_container -->
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_rounded_container"
+                android:fontFamily="@font/font_jakarta_sans"
+                android:hint="Nomor Telepon Darurat"
+                android:inputType="phone"
+                android:textColor="@color/dark_slate"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipGroupFilter" />
+
+            <!-- Tahap 4: GridLayout (6 tombol dalam 3 kolom) -->
+            <TextView
+                android:id="@+id/txtLabelGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_jakarta_sans"
+                android:text="Menu Cepat Self-Care:"
+                android:textColor="@color/dark_slate"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                app:columnCount="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLabelGrid"
+                app:useDefaultMargins="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGridMenu1"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Meditasi"
+                    android:textSize="11sp"
+                    app:backgroundTint="@color/forest_sage_light"
+                    app:cornerRadius="12dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGridMenu2"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Napas 4-7-8"
+                    android:textSize="11sp"
+                    app:backgroundTint="@color/terracotta_peach_light"
+                    app:cornerRadius="12dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGridMenu3"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Refleksi"
+                    android:textSize="11sp"
+                    app:backgroundTint="@color/forest_sage_light"
+                    app:cornerRadius="12dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGridMenu4"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Relaksasi"
+                    android:textSize="11sp"
+                    app:backgroundTint="@color/terracotta_peach_light"
+                    app:cornerRadius="12dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGridMenu5"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Musik Tenang"
+                    android:textSize="11sp"
+                    app:backgroundTint="@color/forest_sage_light"
+                    app:cornerRadius="12dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGridMenu6"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jakarta_sans"
+                    android:text="Konseling"
+                    android:textSize="11sp"
+                    app:backgroundTint="@color/terracotta_peach_light"
+                    app:cornerRadius="12dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+            </androidx.gridlayout.widget.GridLayout>
+
+            <!-- Tombol Buka Tutorial Screen -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBukaTutorial"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/forest_sage"
+                android:fontFamily="@font/font_jakarta_sans"
+                android:text="Buka Tutorial Screen (ViewPager2)"
+                android:textAllCaps="false"
+                android:textColor="@color/pure_white"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:cornerRadius="25dp"
+                app:icon="@drawable/ic_info"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconTint="@color/pure_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gridMenu" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

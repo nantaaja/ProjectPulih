@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tutorial_teal">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardLogo"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="110dp"
+        app:cardBackgroundColor="@color/pure_white"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/border_soft"
+        app:strokeWidth="1dp">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Meditasi &amp; Relaksasi"
+            android:padding="22dp"
+            android:src="@drawable/ic_panduan_meditasi"
+            app:tint="@color/forest_sage" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/font_jakarta_sans"
+        android:gravity="center"
+        android:text="Latihan Napas &amp; Meditasi"
+        android:textColor="@color/dark_slate"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardLogo" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/font_jakarta_sans"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Temukan ketenangan kapan saja dengan teknik pernapasan 4-7-8 dan audio meditasi yang menenangkan jiwa."
+        android:textColor="@color/dark_slate"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <!-- Tombol Mulai (Tantangan 7.4) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/forest_sage"
+        android:fontFamily="@font/font_jakarta_sans"
+        android:paddingHorizontal="28dp"
+        android:text="Mulai Sekarang"
+        android:textAllCaps="false"
+        android:textColor="@color/pure_white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:cornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
