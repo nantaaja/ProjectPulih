@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -53,6 +55,22 @@
             android:name=".TutorialMessageActivity"
             android:exported="false"
             android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+
+        <!-- Layar Riwayat Jurnal (Pertemuan 10: TabLayout & RecyclerView) -->
+        <activity
+            android:name=".JournalActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="LockedOrientationActivity" />
+
+        <!-- Halaman Praktikum Pertemuan 10 -->
+        <activity
+            android:name=".TenthActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity" />
 
     </application>

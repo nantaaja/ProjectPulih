@@ -226,8 +226,10 @@ class MainActivity : AppCompatActivity() {
     private fun showUserOptionsDialog() {
         val options = arrayOf(
             "Lihat Profil (Nabil)",
-            "Buka Tutorial Screen (ViewPager2)",
+            "Buka Riwayat Jurnal (TabLayout & RecyclerView)",
+            "Buka Praktikum Pertemuan 10 (TenthActivity)",
             "Buka Form & Menu Praktikum (NinthActivity)",
+            "Buka Tutorial Screen (ViewPager2)",
             "Pengaturan Akun",
             "Keluar (Logout)"
         )
@@ -236,10 +238,12 @@ class MainActivity : AppCompatActivity() {
             .setItems(options) { _, which ->
                 when (which) {
                     0 -> Toast.makeText(this, "Membuka Profil Nabil", Toast.LENGTH_SHORT).show()
-                    1 -> startActivity(Intent(this, TutorialMessageActivity::class.java))
-                    2 -> startActivity(Intent(this, NinthActivity::class.java))
-                    3 -> Toast.makeText(this, "Membuka Pengaturan", Toast.LENGTH_SHORT).show()
-                    4 -> performLogout()
+                    1 -> startActivity(Intent(this, JournalActivity::class.java))
+                    2 -> startActivity(Intent(this, TenthActivity::class.java))
+                    3 -> startActivity(Intent(this, NinthActivity::class.java))
+                    4 -> startActivity(Intent(this, TutorialMessageActivity::class.java))
+                    5 -> Toast.makeText(this, "Membuka Pengaturan", Toast.LENGTH_SHORT).show()
+                    6 -> performLogout()
                 }
             }
             .show()
@@ -278,11 +282,14 @@ class MainActivity : AppCompatActivity() {
                 icon.setColorFilter(ContextCompat.getColor(this, R.color.forest_sage))
                 text.setTextColor(ContextCompat.getColor(this, R.color.forest_sage))
 
-                if (text.text == getString(R.string.nav_panduan)) {
+                if (text.text == getString(R.string.nav_jurnal)) {
+                    // Buka Layar Riwayat Jurnal (TabLayout & RecyclerView - Pertemuan 10)
+                    startActivity(Intent(this@MainActivity, JournalActivity::class.java))
+                } else if (text.text == getString(R.string.nav_panduan)) {
                     // Buka Tutorial Screen (ViewPager2 & DotsIndicator)
-                    startActivity(Intent(this, TutorialMessageActivity::class.java))
+                    startActivity(Intent(this@MainActivity, TutorialMessageActivity::class.java))
                 } else {
-                    Toast.makeText(this, "Menu: ${text.text}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "Menu: ${text.text}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
